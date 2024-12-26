@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu0dkt5qqqamw"]
+
+[ext_resource type="Script" path="res://main_shops.gd" id="1_7u8t6"]
+
+[node name="Main Shops" type="Node2D"]
+script = ExtResource("1_7u8t6")
+
+[node name="Customer Entry Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Customer Entry Timer" to="." method="spawn_customer"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbe4npginbdd8"]
+
+[ext_resource type="Script" path="res://customer.gd" id="1_oufil"]
+[ext_resource type="Texture2D" uid="uid://bendjsc8hsl2c" path="res://tebi.png" id="1_ufqvg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfmxl"]
+radius = 246.0
+height = 916.0
+
+[node name="Customer" type="Area2D"]
+position = Vector2(106, 52)
+script = ExtResource("1_oufil")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-103, -53)
+texture = ExtResource("1_ufqvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-105, -52)
+shape = SubResource("CapsuleShape2D_mfmxl")
