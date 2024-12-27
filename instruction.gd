@@ -14,8 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not active:
 		return
-	
-	if Input.is_action_pressed(keybind_prefix + "move_" + sequence[counter]):
+	if Input.is_action_just_pressed(keybind_prefix + "move_" + sequence[counter]):
 		counter += 1
 	elif Input.is_anything_pressed():
 		pass # TODO
