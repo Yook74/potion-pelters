@@ -1,20 +1,47 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbe4npginbdd8"]
 
 [ext_resource type="Script" path="res://customer.gd" id="1_oufil"]
-[ext_resource type="Texture2D" uid="uid://bendjsc8hsl2c" path="res://tebi.png" id="1_ufqvg"]
+[ext_resource type="Texture2D" uid="uid://bgkj3arteq6c0" path="res://coin.png" id="2_863ln"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfmxl"]
-radius = 246.0
-height = 916.0
+[sub_resource type="LabelSettings" id="LabelSettings_qmxqe"]
+font_size = 30
+font_color = Color(0.886656, 0.588174, 0.172442, 1)
 
 [node name="Customer" type="Area2D"]
-position = Vector2(106, 52)
+position = Vector2(106, 59)
 script = ExtResource("1_oufil")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-103, -53)
-texture = ExtResource("1_ufqvg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-105, -52)
-shape = SubResource("CapsuleShape2D_mfmxl")
+
+[node name="Wants" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RewardAmount" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -301.0
+offset_right = -29.0
+offset_bottom = -259.0
+text = "100
+"
+label_settings = SubResource("LabelSettings_qmxqe")
+horizontal_alignment = 2
+
+[node name="RewardUnit" type="TextureRect" parent="RewardAmount"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.125
+anchor_top = -4.348
+anchor_right = 8.125
+anchor_bottom = -4.348
+offset_left = -428.625
+offset_top = 182.616
+offset_right = -387.625
+offset_bottom = 225.616
+texture = ExtResource("2_863ln")
+expand_mode = 1
+stretch_mode = 4
