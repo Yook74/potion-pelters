@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr75boc0bfosb"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_kfmlt"]
+[ext_resource type="Texture2D" uid="uid://bghsa44no2mmb" path="res://potion.png" id="1_stcob"]
+[ext_resource type="Texture2D" uid="uid://tran561eys3s" path="res://ellie.png" id="3_i2twg"]
+[ext_resource type="Script" path="res://winner_sprite_2d.gd" id="4_14f6c"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_kfmlt")
+
+[node name="StartGameMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="StartGameMenu"]
+z_index = 100
+offset_left = 845.0
+offset_top = 650.0
+offset_right = 1075.0
+offset_bottom = 731.0
+theme_override_font_sizes/font_size = 32
+text = "Start Game!"
+
+[node name="TextureRect" type="TextureRect" parent="StartGameMenu"]
+offset_left = 814.0
+offset_top = 208.0
+offset_right = 1101.0
+offset_bottom = 600.0
+texture = ExtResource("1_stcob")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="StartGameMenu"]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.478431, 0.631373, 0.419608, 1)
+
+[node name="YouWinScreen" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="YouWinScreen"]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.478431, 0.631373, 0.419608, 1)
+
+[node name="Label" type="Label" parent="YouWinScreen"]
+offset_left = 870.0
+offset_top = 679.0
+offset_right = 1039.0
+offset_bottom = 734.0
+theme_override_font_sizes/font_size = 40
+text = "You Win!"
+
+[node name="Button2" type="Button" parent="YouWinScreen"]
+z_index = 100
+offset_left = 845.0
+offset_top = 802.0
+offset_right = 1075.0
+offset_bottom = 883.0
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="WinnerSprite2D" type="Sprite2D" parent="YouWinScreen"]
+position = Vector2(954, 445)
+scale = Vector2(0.30156, 0.313714)
+texture = ExtResource("3_i2twg")
+script = ExtResource("4_14f6c")
+
+[node name="JumpTimer" type="Timer" parent="YouWinScreen/WinnerSprite2D"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="pressed" from="StartGameMenu/Button" to="." method="_on_start_game"]
+[connection signal="pressed" from="YouWinScreen/Button2" to="." method="_on_start_game"]
+[connection signal="timeout" from="YouWinScreen/WinnerSprite2D/JumpTimer" to="YouWinScreen/WinnerSprite2D" method="_on_jump_timer_timeout"]
