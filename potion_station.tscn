@@ -16,11 +16,15 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_wuydl")
 script = ExtResource("3_4wf5p")
 
+[node name="CooldownTimer" type="Timer" parent="Instruction"]
+one_shot = true
+
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_ogotr")
 
+[connection signal="timeout" from="Instruction/CooldownTimer" to="Instruction" method="_on_cooldown_complete"]
 [connection signal="body_entered" from="DetectionArea" to="." method="on_approach"]
 [connection signal="body_exited" from="DetectionArea" to="." method="on_leave"]

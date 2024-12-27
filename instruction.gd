@@ -14,10 +14,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not active:
 		return
-	if Input.is_action_just_pressed(keybind_prefix + "move_" + sequence[counter]):
-		counter += 1
-	elif Input.is_anything_pressed():
-		pass # TODO
+		
+	for direction in ["left", "right", "up", "down"]:
+		if Input.is_action_just_pressed(keybind_prefix + "move_" + direction):
+			if direction == sequence[counter]:
+				counter += 1
+			else:
+				texture = load("res://fail.png")
+				$CooldownTimer.start()
+				active = false
+				counter = 0
+				return
 		
 	if counter == len(sequence):
 		self.hide()
@@ -35,3 +42,7 @@ func start(keybind_prefix: String, sequence: Array, on_success: Signal) -> void:
 	counter = 0
 	active = true
 	show()
+
+
+func _on_cooldown_complete() -> void:
+	active = true
