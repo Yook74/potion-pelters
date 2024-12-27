@@ -9,7 +9,10 @@ var yeet_scale: Vector2
 var initial_yeet_pos: Vector2
 var initial_yeet_scale: Vector2
 
+@export var score: int
 @export var keybind_prefix: String
+
+signal score_update(new_score)
 
 func _ready() -> void:
 	initial_yeet_pos = $Yeet.position
@@ -60,15 +63,27 @@ func _process(delta):
 		$Yeet/Path2D/PathFollow2D.progress_ratio -= 0.007 / yeet_scale.x
 		$Yeet/Path2D/PathFollow2D/HeldPotion.rotation += 0.3
 		if $Yeet/Path2D/PathFollow2D.progress_ratio == 0:
-			is_yeeting = false
-			$Yeet.hide()
-			$Yeet.position = initial_yeet_pos
-			$Yeet.rotation = 0
-			$Yeet.scale = initial_yeet_scale
+			on_potion_land()
 
 func yeet():
 	is_yeeting = true
 	abs_yeet_pos = $Yeet.global_position
 	yeet_rot = $Yeet.rotation
 	yeet_scale = $Yeet.scale
-		
+
+
+func on_potion_land():
+	is_yeeting = false
+	$Yeet.hide()
+	$Yeet.position = initial_yeet_pos
+	$Yeet.rotation = 0
+	$Yeet.scale = initial_yeet_scale
+	
+	for entity in $Yeet/Area2D.get_overlapping_areas():
+		if entity.gold_reward:
+			score += entity.gold_reward
+			entity.satisfy()
+			
+	score_update.emit(score)
+	
+	

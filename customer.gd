@@ -18,3 +18,9 @@ func _process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+func satisfy():
+	gold_reward = 0
+	$RewardAmount.hide()
+	$Wants.hide()
+	$Satisfied.show()

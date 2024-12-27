@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu0dkt5qqqamw"]
+[gd_scene load_steps=8 format=3 uid="uid://bu0dkt5qqqamw"]
 
 [ext_resource type="Script" path="res://main_shops.gd" id="1_7u8t6"]
 [ext_resource type="PackedScene" uid="uid://liha86oli2iw" path="res://potion_station.tscn" id="2_cjo58"]
+[ext_resource type="PackedScene" uid="uid://cfoqf71qgctju" path="res://hud.tscn" id="2_ge2dq"]
 [ext_resource type="Texture2D" uid="uid://bvnkthblmnong" path="res://background.png" id="2_hd3at"]
 [ext_resource type="PackedScene" uid="uid://djccuxnmqyblf" path="res://ellie.tscn" id="3_hjumj"]
 [ext_resource type="PackedScene" uid="uid://y74qddty8t77" path="res://merry.tscn" id="4_u8nhv"]
@@ -11,6 +12,9 @@ size = Vector2(51, 783)
 
 [node name="Main Shops" type="Node2D"]
 script = ExtResource("1_7u8t6")
+
+[node name="HUD" parent="." node_paths=PackedStringArray("players") instance=ExtResource("2_ge2dq")]
+players = [NodePath("../Ellie")]
 
 [node name="LDesk" type="StaticBody2D" parent="."]
 
@@ -57,3 +61,4 @@ offset_bottom = 1080.0
 texture = ExtResource("2_hd3at")
 
 [connection signal="timeout" from="Customer Entry Timer" to="." method="spawn_customer"]
+[connection signal="score_update" from="Ellie" to="HUD" method="update_score"]

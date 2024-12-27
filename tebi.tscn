@@ -18,13 +18,19 @@ texture = ExtResource("2_mk77h")
 position = Vector2(-105, -57)
 shape = SubResource("CapsuleShape2D_rcwmj")
 
-[node name="Wants" parent="." index="2"]
+[node name="Satisfied" parent="." index="2"]
+offset_left = -133.0
+offset_top = -185.0
+offset_right = -77.0
+offset_bottom = -136.0
+
+[node name="Wants" parent="." index="3"]
 offset_left = -189.0
 offset_top = -196.0
 offset_right = -131.0
 offset_bottom = -134.0
 
-[node name="RewardAmount" parent="." index="3"]
+[node name="RewardAmount" parent="." index="4"]
 offset_left = -138.0
 offset_top = -180.0
 offset_right = -70.0
@@ -36,6 +42,6 @@ offset_top = 178.616
 offset_right = -430.5
 offset_bottom = 228.616
 
-[node name="VisibleOnScreenNotifier2D" parent="." index="4"]
+[node name="VisibleOnScreenNotifier2D" parent="." index="5"]
 position = Vector2(-92, -80)
 scale = Vector2(7.6, 10.5)
