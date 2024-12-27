@@ -15,8 +15,9 @@ func _on_start_game() -> void:
 	$YouWinScreen.hide()
 
 
-func on_win():
+func on_win(winning_player):
 	print("you win!")
+	$YouWinScreen/WinnerSprite2D.texture = winning_player.get_node("Sprite2D").texture
 	main_shops.hide()
 	main_shops.queue_free()
 	$YouWinScreen.show()

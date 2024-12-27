@@ -13,7 +13,7 @@ var initial_yeet_scale: Vector2
 @export var aiming_scale: int
 @export var keybind_prefix: String
 
-signal score_update(new_score)
+signal score_update(new_score, player)
 
 func _ready() -> void:
 	initial_yeet_pos = $Yeet.position
@@ -82,7 +82,7 @@ func on_potion_land():
 		elif entity.has_method("get_potioned"):
 			entity.get_potioned()
 			
-	score_update.emit(score)
+	score_update.emit(score, self)
 
 
 func get_potioned():

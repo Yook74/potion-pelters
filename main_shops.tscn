@@ -62,3 +62,4 @@ texture = ExtResource("2_hd3at")
 
 [connection signal="timeout" from="Customer Entry Timer" to="." method="spawn_customer"]
 [connection signal="score_update" from="Ellie" to="HUD" method="update_score"]
+[connection signal="score_update" from="Merry" to="HUD" method="update_score"]
