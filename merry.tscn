@@ -10,3 +10,6 @@ keybind_prefix = "right_"
 position = Vector2(11, -1)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_lf7ts")
+
+[node name="PathFollow2D" parent="Yeet/Path2D" index="0"]
+position = Vector2(0.000247359, -0.000270307)

@@ -7,7 +7,7 @@
 font_size = 30
 font_color = Color(0.886656, 0.588174, 0.172442, 1)
 
-[node name="Customer" type="Area2D"]
+[node name="Customer" type="Area2D" groups=["customers"]]
 position = Vector2(106, 59)
 script = ExtResource("1_oufil")
 
@@ -45,3 +45,9 @@ offset_bottom = 225.616
 texture = ExtResource("2_863ln")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-67, -131.5)
+scale = Vector2(7, 12.95)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

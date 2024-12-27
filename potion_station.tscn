@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://liha86oli2iw"]
+
+[ext_resource type="Script" path="res://potion_station.gd" id="1_yy5na"]
+[ext_resource type="Texture2D" uid="uid://2corquxfwvy5" path="res://left_arrow.png" id="2_wuydl"]
+[ext_resource type="Script" path="res://instruction.gd" id="3_4wf5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogotr"]
+size = Vector2(73.5, 207.75)
+
+[node name="PotionStation" type="Node2D"]
+script = ExtResource("1_yy5na")
+
+[node name="Instruction" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_wuydl")
+script = ExtResource("3_4wf5p")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_ogotr")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="on_approach"]
+[connection signal="body_exited" from="DetectionArea" to="." method="on_leave"]

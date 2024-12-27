@@ -8,3 +8,10 @@ keybind_prefix = "left_"
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_gu2jc")
+
+[node name="Yeet" parent="." index="2"]
+position = Vector2(481.5, -41.5)
+scale = Vector2(0.431807, 0.359662)
+
+[node name="PathFollow2D" parent="Yeet/Path2D" index="0"]
+position = Vector2(0.000247359, -0.000270307)

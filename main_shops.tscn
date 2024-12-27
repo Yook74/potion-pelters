@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu0dkt5qqqamw"]
+[gd_scene load_steps=7 format=3 uid="uid://bu0dkt5qqqamw"]
 
 [ext_resource type="Script" path="res://main_shops.gd" id="1_7u8t6"]
+[ext_resource type="PackedScene" uid="uid://liha86oli2iw" path="res://potion_station.tscn" id="2_cjo58"]
 [ext_resource type="Texture2D" uid="uid://bvnkthblmnong" path="res://background.png" id="2_hd3at"]
 [ext_resource type="PackedScene" uid="uid://djccuxnmqyblf" path="res://ellie.tscn" id="3_hjumj"]
 [ext_resource type="PackedScene" uid="uid://y74qddty8t77" path="res://merry.tscn" id="4_u8nhv"]
@@ -20,14 +21,14 @@ polygon = PackedVector2Array(6, 409, 621, 397, 616, 837, -1, 835, 1, 977, 760, 9
 position = Vector2(-22.5, 586.5)
 shape = SubResource("RectangleShape2D_n17oj")
 
-[node name="Customer Entry Timer" type="Timer" parent="."]
-autostart = true
+[node name="PotionStation" parent="LDesk" instance=ExtResource("2_cjo58")]
+position = Vector2(574, 609)
+keybind_prefix = "left_"
+instruction_offset = Vector2(150, 0)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -100
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_hd3at")
+[node name="Customer Entry Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [node name="RDesk" type="StaticBody2D" parent="."]
 
@@ -38,10 +39,21 @@ polygon = PackedVector2Array(1925, 399, 1338, 392, 1328, 830, 1920, 825, 1920, 9
 position = Vector2(1948, 590)
 shape = SubResource("RectangleShape2D_n17oj")
 
+[node name="PotionStation" parent="RDesk" instance=ExtResource("2_cjo58")]
+position = Vector2(1378, 625)
+keybind_prefix = "right_"
+instruction_offset = Vector2(-150, 0)
+
 [node name="Ellie" parent="." instance=ExtResource("3_hjumj")]
 position = Vector2(291, 625)
 
 [node name="Merry" parent="." instance=ExtResource("4_u8nhv")]
 position = Vector2(1612, 611)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_hd3at")
 
 [connection signal="timeout" from="Customer Entry Timer" to="." method="spawn_customer"]
