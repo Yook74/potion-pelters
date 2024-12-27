@@ -1,11 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu0dkt5qqqamw"]
+[gd_scene load_steps=3 format=3 uid="uid://bu0dkt5qqqamw"]
 
 [ext_resource type="Script" path="res://main_shops.gd" id="1_7u8t6"]
+[ext_resource type="Texture2D" uid="uid://bvnkthblmnong" path="res://background.png" id="2_hd3at"]
 
 [node name="Main Shops" type="Node2D"]
 script = ExtResource("1_7u8t6")
 
+[node name="LDesk" type="StaticBody2D" parent="."]
+
+[node name="LDeskCollision" type="CollisionPolygon2D" parent="LDesk"]
+polygon = PackedVector2Array(6, 409, 621, 397, 616, 837, -1, 835, 1, 977, 760, 992, 760, 198, -3, 195)
+
 [node name="Customer Entry Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hd3at")
+
+[node name="RDesk" type="StaticBody2D" parent="."]
+
+[node name="RDeskCollision" type="CollisionPolygon2D" parent="RDesk"]
+polygon = PackedVector2Array(1925, 399, 1338, 392, 1328, 830, 1920, 825, 1920, 999, 1171, 987, 1164, 192, 1928, 192)
 
 [connection signal="timeout" from="Customer Entry Timer" to="." method="spawn_customer"]

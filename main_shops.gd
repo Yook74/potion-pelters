@@ -21,10 +21,10 @@ func spawn_customer() -> void:
 		ypos = 0
 		speed_mult = 1
 	else:
-		ypos = 600
+		ypos = 1080
 		speed_mult = -1
 		
-	customer.position = Vector2(400 + randi() % 200, ypos)
+	customer.position = Vector2(1000 + randi() % 200, ypos)
 	customer.speed = (randi() % 5 + 1) * speed_mult
 	customer.wants_potion = Potion.instantiate()
 	customer.gold_reward = randi() % 5 + 1
