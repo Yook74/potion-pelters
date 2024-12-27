@@ -1,5 +1,7 @@
 extends Node2D
 
+const PlayerCharacter = preload("res://player_character.gd")
+
 @export var keybind_prefix: String
 @export var player: CharacterBody2D
 @export var instruction_offset: Vector2
@@ -10,6 +12,9 @@ func _ready() -> void:
 	$Instruction.position = instruction_offset
 
 func on_approach(body: Node2D) -> void:
+	if body is not PlayerCharacter:
+		return
+		
 	sig.connect(player.give_potion)
 	
 	var keypress_len = randi() % 5 + 3

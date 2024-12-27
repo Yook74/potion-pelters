@@ -90,11 +90,9 @@ func on_potion_land():
 
 
 func get_potioned():
-	print("I got potioned")
-	speed = 150
+	speed = 100
 	$PotionedTimer.start()
 
 
 func get_unpotioned() -> void:
 	speed = 400
-	print("unpotioned")
