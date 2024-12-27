@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr75boc0bfosb"]
+[gd_scene load_steps=5 format=3 uid="uid://d23hvcft1knho"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_kfmlt"]
 [ext_resource type="Texture2D" uid="uid://bghsa44no2mmb" path="res://potion.png" id="1_stcob"]
@@ -9,7 +9,6 @@
 script = ExtResource("1_kfmlt")
 
 [node name="StartGameMenu" type="Node2D" parent="."]
-visible = false
 
 [node name="Button" type="Button" parent="StartGameMenu"]
 z_index = 100
