@@ -83,7 +83,18 @@ func on_potion_land():
 		if "gold_reward" in entity:
 			score += entity.gold_reward
 			entity.satisfy()
+		elif entity.has_method("get_potioned"):
+			entity.get_potioned()
 			
 	score_update.emit(score)
-	
-	
+
+
+func get_potioned():
+	print("I got potioned")
+	speed = 150
+	$PotionedTimer.start()
+
+
+func get_unpotioned() -> void:
+	speed = 400
+	print("unpotioned")

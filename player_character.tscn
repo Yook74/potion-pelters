@@ -54,3 +54,9 @@ scale = Vector2(1.38257, 1.63931)
 [node name="Target" type="CollisionShape2D" parent="Yeet/Area2D"]
 position = Vector2(-4.00012, -29)
 shape = SubResource("CircleShape2D_6owi0")
+
+[node name="PotionedTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="PotionedTimer" to="." method="get_unpotioned"]
