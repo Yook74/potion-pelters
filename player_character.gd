@@ -10,6 +10,7 @@ var initial_yeet_pos: Vector2
 var initial_yeet_scale: Vector2
 
 @export var score: int
+@export var aiming_scale: int
 @export var keybind_prefix: String
 
 signal score_update(new_score)
@@ -28,24 +29,19 @@ func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed(keybind_prefix + "move_right"):
 		velocity.x += 1
-		if $Yeet.scale.x < .7:
-			$Yeet.scale.x += 0.005
-			$Yeet.position.x += 5
+		$Yeet.scale.x = clip($Yeet.scale.x + 0.005, .3, .7, true)
+
 	if Input.is_action_pressed(keybind_prefix + "move_left"):
 		velocity.x -= 1
-		if $Yeet.scale.x > .3:
-			$Yeet.scale.x -= 0.005
-			$Yeet.position.x -= 5
+		$Yeet.scale.x = clip($Yeet.scale.x - 0.005, .3, .7, true)
+
 	if Input.is_action_pressed(keybind_prefix + "move_down"):
 		velocity.y += 1
-		if $Yeet.rotation < .3:
-			$Yeet.rotation += .01
-			$Yeet.position.y += 3.5
+		$Yeet.rotation = clip($Yeet.rotation + 0.01 * aiming_scale, -0.3, 0.3)
+
 	if Input.is_action_pressed(keybind_prefix + "move_up"):
 		velocity.y -= 1
-		if $Yeet.rotation > -0.3:
-			$Yeet.rotation -= .01
-			$Yeet.position.y -= 3.5
+		$Yeet.rotation = clip($Yeet.rotation - 0.01 * aiming_scale, -0.3, 0.3)
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -60,7 +56,7 @@ func _process(delta):
 		$Yeet.rotation = yeet_rot
 		$Yeet.scale = yeet_scale
 		
-		$Yeet/Path2D/PathFollow2D.progress_ratio -= 0.007 / yeet_scale.x
+		$Yeet/Path2D/PathFollow2D.progress_ratio -= 0.007 / abs(yeet_scale.x)
 		$Yeet/Path2D/PathFollow2D/HeldPotion.rotation += 0.3
 		if $Yeet/Path2D/PathFollow2D.progress_ratio == 0:
 			on_potion_land()
@@ -96,3 +92,19 @@ func get_potioned():
 
 func get_unpotioned() -> void:
 	speed = 400
+
+func clip(value: float, lower_limit: float, upper_limit: float, absolute_limits = false):
+	var compare_value = value
+	var out_multiplier = 1
+	if absolute_limits:
+		compare_value = abs(value)
+		if value < 0:
+			out_multiplier = -1
+	
+	if compare_value < lower_limit:
+		value = lower_limit * out_multiplier
+	
+	if compare_value > upper_limit:
+		value = upper_limit * out_multiplier
+	
+	return value

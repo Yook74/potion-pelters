@@ -42,9 +42,10 @@ polygon = PackedVector2Array(1928, 416, 1337, 420, 1328, 830, 1924, 832, 1917, 1
 position = Vector2(1948, 590)
 shape = SubResource("RectangleShape2D_n17oj")
 
-[node name="PotionStation" parent="RDesk" instance=ExtResource("2_cjo58")]
+[node name="PotionStation" parent="RDesk" node_paths=PackedStringArray("player") instance=ExtResource("2_cjo58")]
 position = Vector2(1378, 625)
 keybind_prefix = "right_"
+player = NodePath("../../Merry")
 instruction_offset = Vector2(-150, 0)
 
 [node name="Ellie" parent="." instance=ExtResource("3_hjumj")]

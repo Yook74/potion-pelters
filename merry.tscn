@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://csbnarktiyiyh" path="res://merry.png" id="2_lf7ts"]
 
 [node name="Merry" instance=ExtResource("1_3ob6d")]
+aiming_scale = -1
 keybind_prefix = "right_"
 
 [node name="Sprite2D" parent="." index="1"]
@@ -11,5 +12,14 @@ position = Vector2(11, -1)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_lf7ts")
 
-[node name="PathFollow2D" parent="Yeet/Path2D" index="0"]
-position = Vector2(0.000247359, -0.000270307)
+[node name="Yeet" parent="." index="2"]
+visible = true
+position = Vector2(-51.2258, 5.3531)
+scale = Vector2(-0.453, 0.384)
+offset = Vector2(1003.92, -261.336)
+
+[node name="Path2D" parent="Yeet" index="0"]
+position = Vector2(-4.9537, -46.3719)
+
+[node name="Area2D" parent="Yeet" index="1"]
+position = Vector2(1867.05, -41.4539)
