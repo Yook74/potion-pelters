@@ -11,7 +11,6 @@ keybind_prefix = "left_"
 texture = ExtResource("2_gu2jc")
 
 [node name="Yeet" parent="." index="2"]
-visible = true
 position = Vector2(48, 38)
 scale = Vector2(0.431807, 0.359662)
 offset = Vector2(1003.92, -221.041)
