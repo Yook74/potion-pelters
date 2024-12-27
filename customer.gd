@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 const Potion = preload("res://potion.tscn")
 
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(0, speed)
+	move_and_collide(Vector2(0, speed))
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

@@ -8,6 +8,8 @@ radius = 38.0
 height = 154.0
 
 [node name="Customer" instance=ExtResource("1_yhytm")]
+speed = 0.0
+gold_reward = 0
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-106, -61)
@@ -17,12 +19,6 @@ texture = ExtResource("2_mk77h")
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-105, -57)
 shape = SubResource("CapsuleShape2D_rcwmj")
-
-[node name="Satisfied" parent="." index="2"]
-offset_left = -133.0
-offset_top = -185.0
-offset_right = -77.0
-offset_bottom = -136.0
 
 [node name="Wants" parent="." index="3"]
 offset_left = -189.0
