@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 
 
 func spawn_customer() -> void:
-	var customer = load('res://tebi.tscn').instantiate()
 	var ypos
 	var speed_mult
 	if randi() % 2:
@@ -23,9 +22,21 @@ func spawn_customer() -> void:
 		ypos = 1080
 		speed_mult = -1
 		
-	customer.position = Vector2(1000 + randi() % 200, ypos)
-	customer.speed = (randi() % 5 + 1) * speed_mult
-	customer.wants_potion = Potion.instantiate()
-	customer.gold_reward = randi() % 5 + 1
+	var customer = null
+	match randi() % 5:
+		0,1:
+			customer = load('res://tebi.tscn').instantiate()
+			customer.speed = (randi() % 3 + 1) * speed_mult
+			customer.gold_reward = randi() % 5 + 1
+		2,3:
+			customer = load('res://nate.tscn').instantiate()
+			customer.speed = (randi() % 2 + 5) * speed_mult
+			customer.gold_reward = randi() % 5 + 3
+		4:
+			customer = load('res://capy.tscn').instantiate()
+			customer.speed = 1 * speed_mult
+			customer.gold_reward = 1
 	
+	customer.position = Vector2(1000 + randi() % 200, ypos)
+	customer.wants_potion = Potion.instantiate()
 	add_child(customer)
