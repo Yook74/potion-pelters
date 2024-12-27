@@ -13,22 +13,21 @@ size = Vector2(51, 783)
 [node name="Main Shops" type="Node2D"]
 script = ExtResource("1_7u8t6")
 
-[node name="HUD" parent="." node_paths=PackedStringArray("players") instance=ExtResource("2_ge2dq")]
-players = [NodePath("../Ellie")]
+[node name="HUD" parent="." instance=ExtResource("2_ge2dq")]
 
 [node name="LDesk" type="StaticBody2D" parent="."]
 
 [node name="LDeskCollision" type="CollisionPolygon2D" parent="LDesk"]
-polygon = PackedVector2Array(6, 409, 621, 397, 616, 837, -1, 835, 1, 977, 760, 992, 760, 198, -3, 195)
+polygon = PackedVector2Array(6, 409, 595, 416, 601, 839, -1, 835, 5, 1075, 763, 1073, 760, 198, -3, 195)
 
 [node name="bounds" type="CollisionShape2D" parent="LDesk"]
 position = Vector2(-22.5, 586.5)
 shape = SubResource("RectangleShape2D_n17oj")
 
 [node name="PotionStation" parent="LDesk" instance=ExtResource("2_cjo58")]
-position = Vector2(574, 609)
+position = Vector2(565, 609)
 keybind_prefix = "left_"
-instruction_offset = Vector2(150, 0)
+instruction_offset = Vector2(120, 0)
 
 [node name="Customer Entry Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -37,7 +36,7 @@ autostart = true
 [node name="RDesk" type="StaticBody2D" parent="."]
 
 [node name="RDeskCollision" type="CollisionPolygon2D" parent="RDesk"]
-polygon = PackedVector2Array(1925, 399, 1338, 392, 1328, 830, 1920, 825, 1920, 999, 1171, 987, 1164, 192, 1928, 192)
+polygon = PackedVector2Array(1928, 416, 1337, 420, 1328, 830, 1924, 832, 1917, 1068, 1167, 1070, 1164, 192, 1928, 192)
 
 [node name="bounds" type="CollisionShape2D" parent="RDesk"]
 position = Vector2(1948, 590)

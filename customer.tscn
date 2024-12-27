@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://customer.gd" id="1_oufil"]
 [ext_resource type="Texture2D" uid="uid://b684qbdvd8hp4" path="res://smile.png" id="2_2kcie"]
 [ext_resource type="Texture2D" uid="uid://bgkj3arteq6c0" path="res://coin.png" id="2_863ln"]
-[ext_resource type="LabelSettings" path="res://gold.tres" id="2_jdf2f"]
+[ext_resource type="LabelSettings" uid="uid://ls2enct76sur" path="res://gold.tres" id="2_jdf2f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sqejn"]
 bounce = 0.76

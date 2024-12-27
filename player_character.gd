@@ -79,8 +79,8 @@ func on_potion_land():
 	$Yeet.rotation = 0
 	$Yeet.scale = initial_yeet_scale
 	
-	for entity in $Yeet/Area2D.get_overlapping_areas():
-		if entity.gold_reward:
+	for entity in $Yeet/Area2D.get_overlapping_bodies():
+		if "gold_reward" in entity:
 			score += entity.gold_reward
 			entity.satisfy()
 			
