@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://liha86oli2iw"]
+[gd_scene load_steps=6 format=3 uid="uid://liha86oli2iw"]
 
 [ext_resource type="Script" path="res://potion_station.gd" id="1_yy5na"]
 [ext_resource type="Texture2D" uid="uid://2corquxfwvy5" path="res://left_arrow.png" id="2_wuydl"]
 [ext_resource type="Script" path="res://instruction.gd" id="3_4wf5p"]
+[ext_resource type="Texture2D" uid="uid://cxpxwk5p62mtu" path="res://red_potion_highlight.png" id="4_egxnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogotr"]
 size = Vector2(73.5, 207.75)
@@ -24,6 +25,12 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_ogotr")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+z_index = -10
+position = Vector2(108, -17)
+texture = ExtResource("4_egxnd")
 
 [connection signal="timeout" from="Instruction/CooldownTimer" to="Instruction" method="_on_cooldown_complete"]
 [connection signal="body_entered" from="DetectionArea" to="." method="on_approach"]

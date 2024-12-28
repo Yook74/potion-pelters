@@ -10,8 +10,13 @@ signal sig
 
 func _ready() -> void:
 	$Instruction.position = instruction_offset
+	$Outline.position = instruction_offset
+	if $Outline.position.x < 0:
+		$Outline.flip_h = true
+
 
 func on_approach(body: Node2D) -> void:
+	$Outline.show()
 	if body is not PlayerCharacter:
 		return
 		
@@ -39,3 +44,4 @@ func on_approach(body: Node2D) -> void:
 	
 func on_leave(body: Node2D) -> void:
 	$Instruction.hide()
+	$Outline.hide()

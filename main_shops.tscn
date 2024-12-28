@@ -25,9 +25,9 @@ position = Vector2(-22.5, 586.5)
 shape = SubResource("RectangleShape2D_n17oj")
 
 [node name="PotionStation" parent="LDesk" instance=ExtResource("2_cjo58")]
-position = Vector2(565, 609)
+position = Vector2(559, 609)
 keybind_prefix = "left_"
-instruction_offset = Vector2(120, 0)
+instruction_offset = Vector2(114, -17)
 
 [node name="Customer Entry Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_n17oj")
 position = Vector2(1378, 625)
 keybind_prefix = "right_"
 player = NodePath("../../Merry")
-instruction_offset = Vector2(-150, 0)
+instruction_offset = Vector2(-130, -30)
 
 [node name="Ellie" parent="." instance=ExtResource("3_hjumj")]
 position = Vector2(291, 625)
