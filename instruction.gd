@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		return
 		
 	for direction in ["left", "right", "up", "down"]:
-		if Input.is_action_just_pressed(keybind_prefix + "move_" + direction):
+		if Input.is_action_just_pressed(keybind_prefix + "potion_" + direction):
 			if direction == sequence[counter]:
 				counter += 1
 			else:

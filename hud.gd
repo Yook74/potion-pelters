@@ -8,5 +8,5 @@ func update_score(score, player):
 	elif player.name == "Merry":
 		$RPlayerScore.text = str(score)
 		
-	if score >= 5:
+	if score >= 20:
 		Win.emit(player)
